@@ -93,6 +93,8 @@ bindkey -M viins '\e\e' sudo-command-line
 # for fzf
 [[ -e /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
 [[ -e /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
+[[ -e /usr/share/doc/fzf/examples/completion.zsh ]] && source /usr/share/doc/fzf/examples/completion.zsh
+[[ -e /usr/share/doc/fzf/examples/key-bindings.zsh ]] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 export EDITOR=nvim
 
