@@ -98,5 +98,8 @@ bindkey -M viins '\e\e' sudo-command-line
 
 export EDITOR=nvim
 
+#mirros for rust
 export RUSTUP_DIST_SERVER=http://mirrors.ustc.edu.cn/rust-static
 export RUSTUP_UPDATE_ROOT=http://mirrors.ustc.edu.cn/rust-static/rustup
+# proxy for golang
+export GOPROXY=https://mirrors.aliyun.com/goproxy
