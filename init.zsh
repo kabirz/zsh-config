@@ -1,3 +1,7 @@
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+
 # ls, the common ones I use a lot shortened for rapid fire usage
 alias ls='ls --color' # ls color
 alias l='ls -lFh'     #size,show type,human readable
@@ -9,6 +13,7 @@ alias ldot='ls -ld .*'
 alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
+alias lsa='ls -lah'
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
@@ -23,6 +28,27 @@ alias -g LL="2>&1 | less"
 alias -g CA="2>&1 | cat -A"
 alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
+alias -- -='cd -'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+alias md='mkdir -p'
+alias rd=rmdir
+
+# List directory contents
 alias -g P="2>&1| pygmentize -l pytb"
 
 #read documents
@@ -102,4 +128,5 @@ export EDITOR=nvim
 export RUSTUP_DIST_SERVER=http://mirrors.ustc.edu.cn/rust-static
 export RUSTUP_UPDATE_ROOT=http://mirrors.ustc.edu.cn/rust-static/rustup
 # proxy for golang
-export GOPROXY=https://mirrors.aliyun.com/goproxy
+# export GOPROXY=https://mirrors.aliyun.com/goproxy
+# replace by command: go env -w GOPROXY=https://goproxy.cn
