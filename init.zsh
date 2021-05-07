@@ -61,44 +61,8 @@ alias ra=ranger
 alias s=neofetch
 alias lg=lazygit
 
-# sudo
-sudo-command-line() {
-    [[ -z $BUFFER ]] && LBUFFER="$(fc -ln -1)"
-    if [[ -n $EDITOR && $BUFFER == $EDITOR\ * ]]; then
-        if [[ ${#LBUFFER} -le ${#EDITOR} ]]; then
-            RBUFFER=" ${BUFFER#$EDITOR }"
-            LBUFFER="sudoedit"
-        else
-            LBUFFER="sudoedit ${LBUFFER#$EDITOR }"
-        fi
-    elif [[ $BUFFER == sudoedit\ * ]]; then
-        if [[ ${#LBUFFER} -le 8 ]]; then
-            RBUFFER=" ${BUFFER#sudoedit }"
-            LBUFFER="$EDITOR"
-        else
-            LBUFFER="$EDITOR ${LBUFFER#sudoedit }"
-        fi
-    elif [[ $BUFFER == sudo\ * ]]; then
-        if [[ ${#LBUFFER} -le 4 ]]; then
-            RBUFFER="${BUFFER#sudo }"
-            LBUFFER=""
-        else
-            LBUFFER="${LBUFFER#sudo }"
-        fi
-    else
-        LBUFFER="sudo $LBUFFER"
-    fi
-}
-zle -N sudo-command-line
-# Defined shortcut keys: [Esc] [Esc]
-bindkey -M emacs '\e\e' sudo-command-line
-bindkey -M vicmd '\e\e' sudo-command-line
-bindkey -M viins '\e\e' sudo-command-line
-
 [ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
 [ -d ~/.cargo/bin ] && PATH=~/.cargo/bin:$PATH
-[[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
-[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # for fzf
 [[ -e /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
