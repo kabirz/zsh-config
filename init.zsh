@@ -1,7 +1,3 @@
-setopt auto_pushd
-setopt pushd_ignore_dups
-setopt pushdminus
-
 # Command line head / tail shortcuts
 alias -g H='| head'
 alias -g T='| tail'
