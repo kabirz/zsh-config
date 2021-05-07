@@ -2,22 +2,6 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
-# ls, the common ones I use a lot shortened for rapid fire usage
-alias ls='ls --color' # ls color
-alias l='ls -lFh'     #size,show type,human readable
-alias la='ls -lAFh'   #long list,show almost all,show type,human readable
-alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
-alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
-alias ll='ls -l'      #long list
-alias ldot='ls -ld .*'
-alias lS='ls -1FSsh'
-alias lart='ls -1Fcart'
-alias lrt='ls -1Fcrt'
-alias lsa='ls -lah'
-
-alias grep='grep --color'
-alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
-
 # Command line head / tail shortcuts
 alias -g H='| head'
 alias -g T='| tail'
@@ -123,28 +107,6 @@ bindkey -M viins '\e\e' sudo-command-line
 [[ -e /usr/share/doc/fzf/examples/key-bindings.zsh ]] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 export EDITOR=nvim
-
-function colored() {
-	command env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-		PAGER="${commands[less]:-$PAGER}" \
-		_NROFF_U=1 \
-		PATH="$HOME/bin:$PATH" \
-			"$@"
-}
-
-# Colorize man and dman/debman (from debian-goodies)
-function man \
-	dman \
-	debman {
-	colored $0 "$@"
-}
 
 #mirros for rust
 export RUSTUP_DIST_SERVER=http://mirrors.ustc.edu.cn/rust-static
