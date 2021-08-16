@@ -68,7 +68,7 @@ else
     alias la='ls -lAFh'
 fi
 if [ "$(command -v bat)" ]; then
-    alias cat='bat -p'
+    alias cat='bat -pp'
 fi
 
 [ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
