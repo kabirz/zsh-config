@@ -56,6 +56,20 @@ alias tkss='tmux kill-session -t'
 alias ra=ranger
 alias s=neofetch
 alias lg=lazygit
+if [ "$(command -v exa)" ]; then
+    unalias -m 'll'
+    unalias -m 'l'
+    unalias -m 'ls'
+    alias ls='exa --color auto --icons -a -s type'
+    alias ll='exa -l --color always --icons -a -s type'
+		alias l='exa -lFh'
+    alias la='exa -lFh'
+else
+    alias la='ls -lAFh'
+fi
+if [ "$(command -v bat)" ]; then
+    alias cat='bat -p'
+fi
 
 [ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
 [ -d ~/.cargo/bin ] && PATH=~/.cargo/bin:$PATH
