@@ -60,15 +60,15 @@ if [ "$(command -v exa)" ]; then
     unalias -m 'll'
     unalias -m 'l'
     unalias -m 'ls'
-    alias ls='exa --color auto --icons -a -s type'
-    alias ll='exa -l --color always --icons -a -s type'
+    alias ls='exa --color auto --icons -s type'
+    alias ll='exa -l --color always --icons -s type'
 		alias l='exa -lFh'
-    alias la='exa -lFh'
+    alias la='exa -laFh'
 else
     alias la='ls -lAFh'
 fi
 if [ "$(command -v bat)" ]; then
-    alias cat='bat -pp'
+    alias cat='bat -pp --theme Dracula'
 fi
 
 [ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
